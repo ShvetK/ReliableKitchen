@@ -1,101 +1,86 @@
-## Getting started
+# Relaible Kitchen
 
-To make it easy for you to get started with GitHub, here's a list of recommended next steps.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
 
-## Add your files
+## Author:
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+
+
+- [Shvet Kantibhai Anaghan](shvetanaghan28@gmail.com)
+
+## About:
+
+
+
+- I created an application that can keep track of all the raw materials/ingredients available in the kitchen. Before accepting any orders online it should validate that sufficient ingredients are available in the kitchen and it should also keep track of the consumption of the raw materials in case the quantity reduces below a set level it should send an order to the retailers for the same.
+
+## List of Features:
+
+
+
+- This application has user Authentication and user Authorization features for security. Also, an ingredients module can track the number of ingredients available in the inventory. Admin can add new ingredients, modify the existing ingredients and change the number of availability, and set the threshold quantity for every ingredient. In the Food and Beverages section, there is a list of food and beverages along with the add new item option. Through the Order module, the admin can verify the order item's ingredients. If all the ingredients are available to make the order complete then the order will accept. And if the required ingredients are not available the order will reject along with a specific reason.
+
+- There is a also cronjob feature for the ingredients shortfall. A cronjob will run at a configured schedule and trigger an event. This event will check for the shortfall in the quantity of the ingredients present in the kitchen. It will fetch all the ingredients whose available quantity is less than the desired minimum quantity. If there are such ingredients then the system will calculate the quantity for which the order needs to be placed to the distributor/retailer. The calculation will be done to identify the quantity which is the difference between the minimum desired quantity and the availability and additional ‘X’ percentage as configured in the system as buffer value. Each ingredient with the calculated quantity to be ordered will be pushed into the order list. Then this final list will be sent to the Distributor/Retailer for further processing.
+
+## Folder Structure Used
+
+
+
+- MVC or Model-View-Controller is a widely-used software design pattern that is often used in web application development. In a typical MVC architecture, the Model represents the data and the business logic, the View represents the user interface, and the Controller acts as an intermediary between the Model and the View. In your Spring Boot project, you have implemented the MVC architecture, where the Model would represent the data and the business logic related to my application, the View would represent the user interface, and the Controller would handle the user input and update the Model and View accordingly.
+
+- By using the MVC architecture in my application, I can benefit from a number of advantages. Firstly, it helps to keep my code organized and maintainable by separating the different components of the application. Secondly, it makes it easier to test each component of the application separately. Thirdly, it allows for easier collaboration among team members working on different components of the application. Fourthly, it enables to reuse the components of the application in other projects with minimal modifications. Overall, implementing the MVC architecture in my Spring Boot project can help me to build a reliable and maintainable kitchen application.
+
+## Prerequisites:
+
+
+To run this application on your machine, You need to install git first. below is the link that will guide you to install Git on your machine.
+
+- [Git Guides - Install Git](https://github.com/git-guides/install-git)
+
+After Installing Git,
+
+The first step is to clone the repo in your machine using the below command. Run the below command at the destination in cmd where you want to clone the repository.
 
 ```
-cd existing_repo
-git remote add origin https://git.cs.dal.ca/courses/2022-fall/csci-5308/group-18.git
-git branch -M main
-git push -uf origin main
+git clone https://git.cs.dal.ca/snpatel/csci-5709-grp-02
 ```
 
-## Integrate with your tools
+Next, Change the directory to the client side of the project using:
 
-- [ ] [Set up project integrations](https://git.cs.dal.ca/courses/2022-fall/csci-5308/group-18/-/settings/integrations)
+```
+cd .\csci-5709-grp-02\client
+```
 
-## Collaborate with your team
+Next step is, run the below command to instal all the packages and dependencies that is required to run the Assignment.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+```
+npm install
+```
 
-## Test and Deploy
+You are all set and now just run the client side using following command.
 
-Use the built-in continuous integration in GitLab.
+```
+npm start
+```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+Now, To run the server side of the Assignment, open the cmd with the path of the project's repo.
 
----
+Next, Change the directory to the server side of the project using:
 
-# Editing this README
+```
+cd .\csci-5709-grp-02\server
+```
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Next step is, run the below command to instal all the packages and dependencies that is required to run the Assignment.
 
-## Suggestions for a good README
+```
+npm install
+```
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+You are all set and now just run the server side using following command.
 
-## Name
+```
+npm run dev
+```
 
-Choose a self-explaining name for your project.
-
-## Description
-
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-
-Show your appreciation to those who have contributed to the project.
-
-## License
-
-For open source projects, say how it is licensed.
-
-## Project status
-
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Both the server and client are now up and running.
